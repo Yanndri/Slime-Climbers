@@ -1,0 +1,14 @@
+Timer
+RemoteTransform2D
+CollisionShape2D
+Area2D
+AnimationPlayer
+Node2D
+Camera2D
+TileMap
+CanvasLayer
+StaticBody2D
+Label
+CharacterBody2D
+Sprite2D
+AnimationTree

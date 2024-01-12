@@ -1,0 +1,124 @@
+[gd_scene load_steps=15 format=3 uid="uid://dxrs5d6j0fk47"]
+
+[ext_resource type="Script" path="res://slimeNPC.gd" id="1_os2d0"]
+[ext_resource type="Texture2D" uid="uid://cms4r6cpvdmoo" path="res://Art/Slime/slime-idle-0.png" id="2_lu1yf"]
+[ext_resource type="Texture2D" uid="uid://41e56t572eub" path="res://Art/Slime/slime-idle-1.png" id="3_lir35"]
+[ext_resource type="Texture2D" uid="uid://ibk4xt4gi87n" path="res://Art/Slime/slime-idle-2.png" id="4_5vk4h"]
+[ext_resource type="Texture2D" uid="uid://dijndpcuu0wt2" path="res://Art/Slime/slime-idle-3.png" id="5_ect73"]
+[ext_resource type="Texture2D" uid="uid://1lpl7qvgbwfg" path="res://Art/Slime/slime-attack-3.png" id="6_mbbmt"]
+[ext_resource type="Texture2D" uid="uid://rvjsgrncxndf" path="res://Art/Slime/slime-attack-2.png" id="7_jc7rk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uu4gw"]
+size = Vector2(20.978, 9.98918)
+
+[sub_resource type="Animation" id="Animation_v8hap"]
+resource_name = "IdleNPC"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_lu1yf"), ExtResource("3_lir35"), ExtResource("4_5vk4h"), ExtResource("5_ect73")]
+}
+
+[sub_resource type="Animation" id="Animation_2yrgg"]
+resource_name = "JumpNPC"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("6_mbbmt"), ExtResource("7_jc7rk")]
+}
+
+[sub_resource type="Animation" id="Animation_5u1tp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_lu1yf")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a7wg2"]
+_data = {
+"IdleNPC": SubResource("Animation_v8hap"),
+"JumpNPC": SubResource("Animation_2yrgg"),
+"RESET": SubResource("Animation_5u1tp")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kceqs"]
+radius = 2.99999
+height = 23.9992
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik3rg"]
+size = Vector2(22, 5.5)
+
+[node name="Slime" type="CharacterBody2D" groups=["slime"]]
+position = Vector2(0, -1)
+collision_layer = 2
+collision_mask = 128
+collision_priority = 111.0
+script = ExtResource("1_os2d0")
+
+[node name="Body" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0.582774, 5.99384)
+rotation = 0.00180372
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_uu4gw")
+one_way_collision = true
+debug_color = Color(0, 0.0470588, 0.701961, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lu1yf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a7wg2")
+}
+
+[node name="PlayerDetect" type="Area2D" parent="." groups=["slime"]]
+position = Vector2(1, -1)
+rotation = -1.5787
+collision_layer = 8
+collision_mask = 0
+collision_priority = 111.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+position = Vector2(-1.99994, -0.0158071)
+rotation = 0.0108936
+shape = SubResource("CapsuleShape2D_kceqs")
+debug_color = Color(0.733333, 0.470588, 0, 0.419608)
+
+[node name="DetectNPC" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+collision_priority = 111.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectNPC"]
+position = Vector2(1, 8.75)
+shape = SubResource("RectangleShape2D_ik3rg")
+debug_color = Color(0.976471, 0, 0.423529, 0.419608)
+
+[connection signal="area_entered" from="DetectNPC" to="." method="_on_detect_npc_area_entered"]

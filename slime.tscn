@@ -1,0 +1,162 @@
+[gd_scene load_steps=23 format=3 uid="uid://ckpophb48455"]
+
+[ext_resource type="Script" path="res://Slime.gd" id="1_i25jw"]
+[ext_resource type="Texture2D" uid="uid://cms4r6cpvdmoo" path="res://Art/Slime/slime-idle-0.png" id="2_ct1ju"]
+[ext_resource type="Texture2D" uid="uid://41e56t572eub" path="res://Art/Slime/slime-idle-1.png" id="3_tf25q"]
+[ext_resource type="Texture2D" uid="uid://ibk4xt4gi87n" path="res://Art/Slime/slime-idle-2.png" id="4_kbw28"]
+[ext_resource type="Texture2D" uid="uid://dijndpcuu0wt2" path="res://Art/Slime/slime-idle-3.png" id="5_7n2uj"]
+[ext_resource type="Texture2D" uid="uid://1lpl7qvgbwfg" path="res://Art/Slime/slime-attack-3.png" id="6_i8rt8"]
+[ext_resource type="Texture2D" uid="uid://rvjsgrncxndf" path="res://Art/Slime/slime-attack-2.png" id="7_5osdp"]
+[ext_resource type="Texture2D" uid="uid://dpvpmr2mecgsd" path="res://Art/Slime/slime-move-0.png" id="8_1xbyj"]
+[ext_resource type="Texture2D" uid="uid://dhqsbnl2lsxgo" path="res://Art/Slime/slime-move-1.png" id="9_uq8bo"]
+[ext_resource type="Texture2D" uid="uid://bfeg0jimgns2j" path="res://Art/Slime/slime-move-2.png" id="10_gcv75"]
+[ext_resource type="Texture2D" uid="uid://ce6wwqhsnca5t" path="res://Art/Slime/slime-move-3.png" id="11_b56w3"]
+[ext_resource type="Script" path="res://SlimeDetector.gd" id="12_v6ndi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7cvw"]
+size = Vector2(12, 18)
+
+[sub_resource type="Animation" id="Animation_gsw73"]
+resource_name = "Consume"
+
+[sub_resource type="Animation" id="Animation_t6crb"]
+resource_name = "Idle"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_ct1ju"), ExtResource("3_tf25q"), ExtResource("4_kbw28"), ExtResource("5_7n2uj")]
+}
+
+[sub_resource type="Animation" id="Animation_8igo0"]
+resource_name = "Jump"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("6_i8rt8"), ExtResource("7_5osdp")]
+}
+
+[sub_resource type="Animation" id="Animation_0n4pr"]
+resource_name = "Move"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("8_1xbyj"), ExtResource("9_uq8bo"), ExtResource("10_gcv75"), ExtResource("11_b56w3")]
+}
+
+[sub_resource type="Animation" id="Animation_0n86e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ct1ju")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c24c8"]
+_data = {
+"Consume": SubResource("Animation_gsw73"),
+"Idle": SubResource("Animation_t6crb"),
+"Jump": SubResource("Animation_8igo0"),
+"Move": SubResource("Animation_0n4pr"),
+"RESET": SubResource("Animation_0n86e")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_luf1t"]
+size = Vector2(24, 2.75)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uln4r"]
+radius = 3.99982
+height = 19.9991
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p6lhj"]
+radius = 7.99966
+height = 22.0177
+
+[node name="Slime" type="CharacterBody2D" groups=["player", "slime"]]
+z_index = 2
+collision_layer = 0
+collision_mask = 130
+script = ExtResource("1_i25jw")
+
+[node name="Body" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(1, 5)
+rotation = 1.56966
+shape = SubResource("RectangleShape2D_r7cvw")
+debug_color = Color(0.929412, 0.490196, 0.701961, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ct1ju")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c24c8")
+}
+
+[node name="Feet" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("12_v6ndi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Feet"]
+position = Vector2(1, 10.375)
+shape = SubResource("RectangleShape2D_luf1t")
+debug_color = Color(0.976471, 0, 0.423529, 0.419608)
+
+[node name="ConsumeDetect" type="Area2D" parent="."]
+position = Vector2(6, -13)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConsumeDetect"]
+position = Vector2(-5, 17)
+rotation = 1.58033
+shape = SubResource("CapsuleShape2D_uln4r")
+debug_color = Color(0, 1, 1, 0.419608)
+
+[node name="Detector" type="Area2D" parent="." groups=["detect"]]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+position = Vector2(1, 5)
+rotation = 1.58012
+shape = SubResource("CapsuleShape2D_p6lhj")
+
+[connection signal="area_entered" from="Feet" to="." method="_on_feet_area_entered"]
+[connection signal="body_entered" from="ConsumeDetect" to="." method="_on_consume_detect_body_entered"]
+[connection signal="area_entered" from="Detector" to="." method="_on_trapdetect_area_entered"]

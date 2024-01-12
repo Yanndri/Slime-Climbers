@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bt2f7lm3jyggk"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_aw87p"]
+[ext_resource type="PackedScene" uid="uid://ckpophb48455" path="res://slime.tscn" id="2_4ydnc"]
+[ext_resource type="PackedScene" uid="uid://evucfcf2gdmt" path="res://level_1.tscn" id="6_xtgxp"]
+[ext_resource type="PackedScene" uid="uid://dvka04nn37kml" path="res://label.tscn" id="13_3kx6c"]
+[ext_resource type="PackedScene" uid="uid://2iqr2k06gn7l" path="res://Levels.tscn" id="13_d8fyv"]
+[ext_resource type="PackedScene" uid="uid://cfk21c6n2uijm" path="res://button.tscn" id="18_5mpi6"]
+[ext_resource type="Texture2D" uid="uid://b1hb46i56eg1b" path="res://Art/Pixel Adventure Sprites/Background/Brown.png" id="19_8etgu"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(49, -384)
+script = ExtResource("1_aw87p")
+
+[node name="TileMap" parent="." instance=ExtResource("13_d8fyv")]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -111
+
+[node name="Brown" type="Sprite2D" parent="Background"]
+modulate = Color(0.631373, 0.447059, 0.282353, 1)
+show_behind_parent = true
+z_index = -111
+position = Vector2(289.5, 163)
+scale = Vector2(9.26563, 5.28125)
+texture = ExtResource("19_8etgu")
+
+[node name="Window" type="CanvasLayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Window"]
+position = Vector2(134, 68)
+
+[node name="Label" parent="Window" instance=ExtResource("13_3kx6c")]
+offset_left = 504.0
+offset_top = 3.0
+offset_right = 572.0
+offset_bottom = 29.0
+horizontal_alignment = 2
+
+[node name="Button" parent="." instance=ExtResource("18_5mpi6")]
+position = Vector2(-30, 20)
+
+[node name="Level1" parent="." instance=ExtResource("6_xtgxp")]
+
+[node name="Slime" parent="." instance=ExtResource("2_4ydnc")]
+position = Vector2(1, 475)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Slime"]
+position = Vector2(84, -23)
+remote_path = NodePath("../../Window/Camera2D")
+
+[connection signal="spawn_slime" from="Slime" to="." method="_on_slime_spawn_slime"]

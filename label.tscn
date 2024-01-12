@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvka04nn37kml"]
+
+[ext_resource type="Script" path="res://Amounts.gd" id="1_e8p46"]
+
+[node name="Amount" type="Label"]
+text = "Slimes: 0"
+script = ExtResource("1_e8p46")
