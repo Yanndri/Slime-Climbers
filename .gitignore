@@ -9,3 +9,5 @@ export_presets.cfg
 # Mono-specific ignores
 .mono/
 data_*/
+.godot/editor/filesystem_update4
+.godot/editor/level_1.tscn-editstate-63309efd344a9c730c2375c6c1edaf63.cfg
