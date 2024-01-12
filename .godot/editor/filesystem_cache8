@@ -1,18 +1,18 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1705075938
+::res://::1705079736
 Amounts.gd::GDScript::-1::1704992990::0::1::::<>Label<>::
 Button.gd::GDScript::-1::1705033014::0::1::::<>Sprite2D<>::
 button.tscn::PackedScene::5146115306126358030::1705054721::0::1::::<><>::uid://dabjtgj003x1f
 icon.svg::CompressedTexture2D::7161907142066216741::1704708039::1704708059::1::::<><>::
-label.tscn::PackedScene::8653917733755162603::1705074687::0::1::::<><>::res://Amounts.gd
-Levels.tscn::PackedScene::1912617065396061247::1705074685::0::1::::<><>::uid://bgg63k2pr0x45::::res://Art/Pixel Adventure Sprites/Terrain/Terrain (16x16).png<>uid://ivg16ak8p0rr::::res://Art/Pixel Adventure Sprites/Traps/Spikes/Idle.png
-level_1.tscn::PackedScene::325325484800381367::1705075172::0::1::::<><>::res://main.gd<>uid://2iqr2k06gn7l::::res://Levels.tscn<>uid://dxrs5d6j0fk47::::res://slimeNPC.tscn<>uid://k1adqqn60f7c::::res://power_up.tscn
+label.tscn::PackedScene::8653917733755162603::1705076159::0::1::::<><>::res://Amounts.gd
+Levels.tscn::PackedScene::1912617065396061247::1705079189::0::1::::<><>::uid://bgg63k2pr0x45::::res://Art/Pixel Adventure Sprites/Terrain/Terrain (16x16).png<>uid://ivg16ak8p0rr::::res://Art/Pixel Adventure Sprites/Traps/Spikes/Idle.png
+level_1.tscn::PackedScene::325325484800381367::1705079349::0::1::::<><>::res://main.gd<>uid://2iqr2k06gn7l::::res://Levels.tscn<>uid://dxrs5d6j0fk47::::res://slimeNPC.tscn<>uid://k1adqqn60f7c::::res://power_up.tscn
 main.gd::GDScript::-1::1705069413::0::1::::<>Node2D<>::
-main.tscn::PackedScene::3776108240123793214::1705074684::0::1::::<><>::res://main.gd<>uid://ckpophb48455::::res://slime.tscn<>uid://evucfcf2gdmt::::res://level_1.tscn<>uid://dvka04nn37kml::::res://label.tscn<>uid://2iqr2k06gn7l::::res://Levels.tscn<>uid://cfk21c6n2uijm::::res://button.tscn<>uid://b1hb46i56eg1b::::res://Art/Pixel Adventure Sprites/Background/Brown.png
+main.tscn::PackedScene::3776108240123793214::1705079189::0::1::::<><>::res://main.gd<>uid://ckpophb48455::::res://slime.tscn<>uid://evucfcf2gdmt::::res://level_1.tscn<>uid://dvka04nn37kml::::res://label.tscn<>uid://2iqr2k06gn7l::::res://Levels.tscn<>uid://cfk21c6n2uijm::::res://button.tscn<>uid://b1hb46i56eg1b::::res://Art/Pixel Adventure Sprites/Background/Brown.png
 Power-up.gd::GDScript::-1::1705070548::0::1::::<>Node2D<>::
-power_up.tscn::PackedScene::755568481091142062::1705074689::0::1::::<><>::res://Power-up.gd<>uid://mw7mrsuo7pqx::::res://Art/Pixel Adventure Sprites/Items/Fruits/Apple.png
+power_up.tscn::PackedScene::755568481091142062::1705079189::0::1::::<><>::res://Power-up.gd<>uid://mw7mrsuo7pqx::::res://Art/Pixel Adventure Sprites/Items/Fruits/Apple.png
 Slime.gd::GDScript::-1::1705069442::0::1::::<>CharacterBody2D<>::
-slime.tscn::PackedScene::161958019572231878::1705074688::0::1::::<><>::res://Slime.gd<>uid://cms4r6cpvdmoo::::res://Art/Slime/slime-idle-0.png<>uid://41e56t572eub::::res://Art/Slime/slime-idle-1.png<>uid://ibk4xt4gi87n::::res://Art/Slime/slime-idle-2.png<>uid://dijndpcuu0wt2::::res://Art/Slime/slime-idle-3.png<>uid://1lpl7qvgbwfg::::res://Art/Slime/slime-attack-3.png<>uid://rvjsgrncxndf::::res://Art/Slime/slime-attack-2.png<>uid://dpvpmr2mecgsd::::res://Art/Slime/slime-move-0.png<>uid://dhqsbnl2lsxgo::::res://Art/Slime/slime-move-1.png<>uid://bfeg0jimgns2j::::res://Art/Slime/slime-move-2.png<>uid://ce6wwqhsnca5t::::res://Art/Slime/slime-move-3.png<>res://SlimeDetector.gd
+slime.tscn::PackedScene::161958019572231878::1705079189::0::1::::<><>::res://Slime.gd<>uid://cms4r6cpvdmoo::::res://Art/Slime/slime-idle-0.png<>uid://41e56t572eub::::res://Art/Slime/slime-idle-1.png<>uid://ibk4xt4gi87n::::res://Art/Slime/slime-idle-2.png<>uid://dijndpcuu0wt2::::res://Art/Slime/slime-idle-3.png<>uid://1lpl7qvgbwfg::::res://Art/Slime/slime-attack-3.png<>uid://rvjsgrncxndf::::res://Art/Slime/slime-attack-2.png<>uid://dpvpmr2mecgsd::::res://Art/Slime/slime-move-0.png<>uid://dhqsbnl2lsxgo::::res://Art/Slime/slime-move-1.png<>uid://bfeg0jimgns2j::::res://Art/Slime/slime-move-2.png<>uid://ce6wwqhsnca5t::::res://Art/Slime/slime-move-3.png<>res://SlimeDetector.gd
 SlimeDetector.gd::GDScript::-1::1704808115::0::1::::<>Area2D<>::
 slimeNPC.gd::GDScript::-1::1705067399::0::1::::<>CharacterBody2D<>::
 slimeNPC.tscn::PackedScene::8809846562161531066::1705068971::0::1::::<><>::res://slimeNPC.gd<>uid://cms4r6cpvdmoo
