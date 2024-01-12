@@ -22,4 +22,4 @@ position = Vector2(378, -101)
 position = Vector2(62, -4)
 
 [node name="Power-up" parent="." instance=ExtResource("4_cpncv")]
-position = Vector2(92, -159)
+position = Vector2(144, -98)
