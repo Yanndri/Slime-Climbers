@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bt2f7lm3jyggk"]
+[gd_scene load_steps=8 format=3 uid="uid://wju370p1u22w"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_aw87p"]
-[ext_resource type="PackedScene" uid="uid://ckpophb48455" path="res://slime.tscn" id="2_4ydnc"]
-[ext_resource type="PackedScene" uid="uid://evucfcf2gdmt" path="res://level_1.tscn" id="6_xtgxp"]
-[ext_resource type="PackedScene" uid="uid://dvka04nn37kml" path="res://label.tscn" id="13_3kx6c"]
-[ext_resource type="PackedScene" uid="uid://2iqr2k06gn7l" path="res://Levels.tscn" id="13_d8fyv"]
-[ext_resource type="PackedScene" uid="uid://cfk21c6n2uijm" path="res://button.tscn" id="18_5mpi6"]
-[ext_resource type="Texture2D" uid="uid://b1hb46i56eg1b" path="res://Art/Pixel Adventure Sprites/Background/Brown.png" id="19_8etgu"]
+[ext_resource type="PackedScene" path="res://slime.tscn" id="2_4ydnc"]
+[ext_resource type="PackedScene" path="res://level_1.tscn" id="6_xtgxp"]
+[ext_resource type="PackedScene" path="res://label.tscn" id="13_3kx6c"]
+[ext_resource type="PackedScene" path="res://Levels.tscn" id="13_d8fyv"]
+[ext_resource type="PackedScene" path="res://button.tscn" id="18_5mpi6"]
+[ext_resource type="Texture2D" path="res://Art/Pixel Adventure Sprites/Background/Brown.png" id="19_8etgu"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(49, -384)
