@@ -1,14 +1,6 @@
 res://main.tscn
-res://slimeNPC.tscn
 res://Levels.tscn
 res://label.tscn
-res://spike.tscn
-res://Button.gd
-res://button.tscn
-res://Slime.gd
-res://slime.tscn
 res://level_1.tscn
-res://main.gd
-res://slimeNPC.gd
-res://Power-up.gd
+res://slime.tscn
 res://power_up.tscn
