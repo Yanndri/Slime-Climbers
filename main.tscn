@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bt2f7lm3jyggk"]
+[gd_scene load_steps=7 format=3 uid="uid://bt2f7lm3jyggk"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_aw87p"]
 [ext_resource type="PackedScene" uid="uid://ckpophb48455" path="res://slime.tscn" id="2_4ydnc"]
-[ext_resource type="PackedScene" uid="uid://evucfcf2gdmt" path="res://level_1.tscn" id="6_xtgxp"]
 [ext_resource type="PackedScene" uid="uid://dvka04nn37kml" path="res://label.tscn" id="13_3kx6c"]
 [ext_resource type="PackedScene" uid="uid://2iqr2k06gn7l" path="res://Levels.tscn" id="13_d8fyv"]
 [ext_resource type="PackedScene" uid="uid://cfk21c6n2uijm" path="res://button.tscn" id="18_5mpi6"]
@@ -27,20 +26,17 @@ texture = ExtResource("19_8etgu")
 
 [node name="Window" type="CanvasLayer" parent="."]
 
+[node name="Amount" parent="Window" instance=ExtResource("13_3kx6c")]
+offset_left = 544.0
+offset_top = 1.0
+offset_right = 562.0
+offset_bottom = 27.0
+
 [node name="Camera2D" type="Camera2D" parent="Window"]
 position = Vector2(134, 68)
 
-[node name="Label" parent="Window" instance=ExtResource("13_3kx6c")]
-offset_left = 504.0
-offset_top = 3.0
-offset_right = 572.0
-offset_bottom = 29.0
-horizontal_alignment = 2
-
 [node name="Button" parent="." instance=ExtResource("18_5mpi6")]
 position = Vector2(-30, 20)
-
-[node name="Level1" parent="." instance=ExtResource("6_xtgxp")]
 
 [node name="Slime" parent="." instance=ExtResource("2_4ydnc")]
 position = Vector2(1, 475)
@@ -49,4 +45,7 @@ position = Vector2(1, 475)
 position = Vector2(84, -23)
 remote_path = NodePath("../../Window/Camera2D")
 
+[connection signal="death" from="Slime" to="." method="_on_slime_death"]
+[connection signal="fruit" from="Slime" to="Window/Amount" method="_on_slime_fruit"]
 [connection signal="spawn_slime" from="Slime" to="." method="_on_slime_spawn_slime"]
+[connection signal="spawn_slime" from="Slime" to="Window/Amount" method="_on_slime_spawn_slime"]

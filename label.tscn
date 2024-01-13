@@ -1,7 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvka04nn37kml"]
+[gd_scene load_steps=3 format=3 uid="uid://dvka04nn37kml"]
 
 [ext_resource type="Script" path="res://Amounts.gd" id="1_e8p46"]
+[ext_resource type="Texture2D" uid="uid://cms4r6cpvdmoo" path="res://Art/Slime/slime-idle-0.png" id="2_mjp0g"]
 
 [node name="Amount" type="Label"]
-text = "Slimes: 0"
+offset_left = 54.0
+offset_top = 2.0
+offset_right = 72.0
+offset_bottom = 28.0
+text = ": 0"
 script = ExtResource("1_e8p46")
+
+[node name="Slime-idle-0" type="Sprite2D" parent="."]
+modulate = Color(0.556863, 0.733333, 1, 0.788235)
+position = Vector2(-26, 4)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_mjp0g")

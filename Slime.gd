@@ -1,17 +1,20 @@
 extends CharacterBody2D
 
 
-var SPEED = 300.0
+var SPEED = 150.0
 const JUMP_VELOCITY = -350.0
 signal spawn_slime
+signal death
+signal fruit
 var double_jump = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var windowscale = ProjectSettings.get_setting("display/window/stretch/scale")
-var slime = 0
+var slime = 1
 
 func _ready():
+	scale += Vector2(0.3, 0.3)
 #	Engine.set_time_scale(0.5) // slow ingame time
 	$AnimationPlayer.play("Idle")
 
@@ -43,6 +46,7 @@ func _physics_process(delta):
 	move_and_slide()
 	facing_direction_moving()
 	drop_slime()
+	voiddeath()
 	
 func facing_direction_moving():
 	if velocity.x != 0:
@@ -64,6 +68,7 @@ func _on_consume_detect_body_entered(body):
 	if body.is_in_group("slime"):
 		body.queue_free()
 		self.scale += Vector2(0.3, 0.3)
+		emit_signal("fruit")
 		slime += 1
 
 func drop_slime():
@@ -79,3 +84,7 @@ func _on_trapdetect_area_entered(area):
 	if area.is_in_group("apple"):
 		double_jump = true
 		
+func voiddeath():
+	if position.y > 650:
+		emit_signal("death")
+		position = Vector2(0, 400)

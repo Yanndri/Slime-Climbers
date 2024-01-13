@@ -1,6 +1,9 @@
+res://level_1.tscn
 res://main.tscn
+res://Slime.gd
 res://Levels.tscn
 res://label.tscn
-res://level_1.tscn
 res://slime.tscn
 res://power_up.tscn
+res://main.gd
+res://Amounts.gd
