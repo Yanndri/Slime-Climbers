@@ -16,7 +16,10 @@ layer_0/tile_data = PackedInt32Array(131066, 458752, 0, 196602, 458752, 1, 26213
 [node name="NPCs" type="Node2D" parent="."]
 
 [node name="Slime3" parent="NPCs" instance=ExtResource("3_45tyk")]
-position = Vector2(378, -101)
+position = Vector2(151, -13)
+
+[node name="Slime4" parent="NPCs" instance=ExtResource("3_45tyk")]
+position = Vector2(154, -69)
 
 [node name="Slime2" parent="NPCs" instance=ExtResource("3_45tyk")]
 position = Vector2(62, -4)
